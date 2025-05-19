@@ -12,5 +12,8 @@ func handlerFunc(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/", handlerFunc)
 	fmt.Println("Starting server on port 3000...")
-	http.ListenAndServe(":3000", nil)
+	err := http.ListenAndServe(":3000", nil)
+	if err != nil {
+		panic(err)
+	}
 }
